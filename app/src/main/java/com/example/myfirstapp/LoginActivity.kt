@@ -1,3 +1,5 @@
+package com.example.myfirstapp
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         // Menambahkan listener klik ke tombol "login_btn"
         loginButton.setOnClickListener {
             // Ketika tombol diklik, kita akan pindah ke Activity lain (activity_main)
-            val intent = Intent(this, HomeFragment::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

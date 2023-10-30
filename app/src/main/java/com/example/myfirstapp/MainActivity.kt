@@ -17,16 +17,16 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             // Ganti fragmen awal dengan HomeFragment
-            replaceFragment(HomeFragment())
+            replaceFragment(NotificationFragment())
 
             // Atur pendengar untuk BottomNavigationView
             bottomNavbar.setOnItemSelectedListener { item ->
                 // Tangani pemilihan item
                 when (item.itemId) {
-                    R.id.home -> {
-                        // Ganti fragmen saat ini dengan HomeFragment
-                        replaceFragment(HomeFragment())
-                    }
+//                    R.id.home -> {
+//                        // Ganti fragmen saat ini dengan HomeFragment
+//                        replaceFragment(HomeFragment())
+//                    }
                     R.id.Movie -> {
                         // Ganti fragmen saat ini dengan NotificationFragment
                         replaceFragment(NotificationFragment())

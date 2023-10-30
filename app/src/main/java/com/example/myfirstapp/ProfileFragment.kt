@@ -1,10 +1,12 @@
 package com.example.myfirstapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,29 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        // Find the "logout_btn" ImageView
+        val logoutButton = view.findViewById<ImageView>(R.id.logout_btn)
+
+        // Set a click listener for the logout button
+        logoutButton.setOnClickListener {
+            // Perform the logout action and navigate to LoginActivity
+            navigateToLogin()
+        }
+
+        return view
+    }
+
+    private fun navigateToLogin() {
+        // Create an Intent to start LoginActivity
+        val loginIntent = Intent(activity, LoginActivity::class.java)
+
+        // Clear the back stack, so the user cannot navigate back to ProfileFragment
+        loginIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        // Start the LoginActivity
+        startActivity(loginIntent)
     }
 
     companion object {
